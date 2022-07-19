@@ -1,23 +1,24 @@
 import React from 'react';
-import { useLocation, Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import ShoppingCart from '../../assets/icon-shopping-cart.svg';
 import UserLogo from '../../assets/icon-user.svg';
 
-export default function HeaderFunc() {
-  const location = useLocation();
+export default function HeaderFunc({ isLogin }) {
+  const history = useHistory();
 
+  function moveToLogin() {
+    history.push('/login');
+  }
   return (
     <FlexContainer>
       <Button to="/">
         <ButtonImg src={ShoppingCart} isFirst={true} alt="장바구니 버튼" />
         <ButtonText>장바구니</ButtonText>
       </Button>
-      <Button to="/">
+      <Button onClick={!isLogin ? moveToLogin : null}>
         <ButtonImg src={UserLogo} alt="로그인 버튼" />
-        <ButtonText>
-          {location.pathname === '/' ? '로그인' : location.pathname === 'login/buyer' ? '마이페이지' : null}
-        </ButtonText>
+        <ButtonText>{!isLogin ? '로그인' : '마이페이지'}</ButtonText>
       </Button>
     </FlexContainer>
   );
@@ -28,8 +29,10 @@ const FlexContainer = styled.article`
   gap: 30px;
 `;
 
-const Button = styled(Link)`
+const Button = styled.button`
   text-align: center;
+  border: none;
+  background-color: #ffffff;
 `;
 
 const ButtonImg = styled.img`

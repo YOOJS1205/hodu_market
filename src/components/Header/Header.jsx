@@ -5,7 +5,7 @@ import HoduLogo from '../../assets/Logo-hodu.png';
 import SearchLogo from '../../assets/search.svg';
 import HeaderFunc from '../HeaderFunc/HeaderFunc';
 
-export default function Header() {
+export default function Header({ isLogin }) {
   return (
     <Container>
       <h2 className="ir">메인 페이지 헤더</h2>
@@ -21,14 +21,14 @@ export default function Header() {
       </Left>
       <Right>
         <h3 className="ir">헤더 오른쪽</h3>
-        <HeaderFunc />
+        <HeaderFunc isLogin={isLogin} />
       </Right>
     </Container>
   );
 }
 
 const Container = styled.article`
-  padding: 20px 100px;
+  padding: 20px 200px;
   display: flex;
   justify-content: space-between;
 `;
