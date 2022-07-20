@@ -30,7 +30,9 @@ export default function Form() {
 const Container = styled.section`
   text-align: center;
   border-radius: 10px;
-  display: inline-block;
+  display: block;
+  width: 575px;
+  margin: 0 auto;
 `;
 
 const Button = styled.button`

@@ -13,6 +13,4 @@ export default function Login() {
   );
 }
 
-const Container = styled.section`
-  padding: 0 300px;
-`;
+const Container = styled.section``;
