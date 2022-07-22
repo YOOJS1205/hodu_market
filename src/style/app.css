@@ -1,9 +1,17 @@
 input:focus {
   outline: none;
+  border-color: #21bf48;
+}
+
+select:focus {
+  outline: none;
+  border-color: #21bf48;
 }
 
 button {
   cursor: pointer;
+  border: none;
+  background-color: #ffffff;
 }
 
 .ir {

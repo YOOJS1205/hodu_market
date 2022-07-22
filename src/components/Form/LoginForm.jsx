@@ -56,7 +56,7 @@ export default function LoginForm({ isBuyer }) {
       <Input id="password" type="password" placeholder="비밀번호" isLast={true} onChange={onHandlePasswordInput} />
       {isPasswordEmpty ? <WarningText isLast={true}>비밀번호를 입력해 주세요.</WarningText> : null}
       {isRight ? null : <WarningText isLast={true}>아이디 또는 비밀번호가 일치하지 않습니다.</WarningText>}
-      <Button isActive={true} buttonText="로그인" onClick={onClickLoginButton} />
+      <Button isActive={true} buttonText="로그인" onClick={onClickLoginButton} size="full" />
     </Container>
   );
 }

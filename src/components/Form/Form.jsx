@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import LoginForm from './LoginForm';
+import JoinForm from './JoinForm';
 
 export default function Form() {
+  const location = useLocation();
+
   const [isBuyer, setIsBuyer] = useState(true);
 
   function onClickBuyerButton() {
@@ -22,7 +26,7 @@ export default function Form() {
       <Button isBuyer={!isBuyer} onClick={onClickSellerButton}>
         판매회원 로그인
       </Button>
-      <LoginForm isBuyer={isBuyer} />
+      {location.pathname === '/login' ? <LoginForm isBuyer={isBuyer} /> : <JoinForm isBuyer={isBuyer} />}
     </Container>
   );
 }
