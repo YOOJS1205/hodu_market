@@ -18,7 +18,7 @@ export default function Banner() {
 }
 
 const Container = styled.section`
-  height: 350px;
+  height: 400px;
   background-color: #f2f2f2;
   display: flex;
   justify-content: space-between;

@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux/es/exports';
 import axios from 'axios';
 import styled from 'styled-components';
 
 export default function Main() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const [productList, setProductList] = useState([]);
+
   useEffect(() => {
     (async function getData() {
       const res = await axios.get('https://openmarket.weniv.co.kr/products');
@@ -14,7 +20,19 @@ export default function Main() {
   return (
     <Container>
       {productList.map((item) => (
-        <Product key={item.product_id}>
+        <Product
+          key={item.product_id}
+          onClick={() => {
+            dispatch({
+              type: 'PRODUCT_CLICK',
+              productImage: item.image,
+              productStore: item.seller_store,
+              productName: item.product_name,
+              productPrice: item.price,
+            });
+            navigate('/product/detail');
+          }}
+        >
           <ProductImg src={item.image} />
           <ProductSeller>{item.seller_store}</ProductSeller>
           <ProductName>{item.product_name}</ProductName>

@@ -31,6 +31,7 @@ const Container = styled.article`
   padding: 20px 200px;
   display: flex;
   justify-content: space-between;
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.1);
 `;
 
 const Left = styled.article``;
