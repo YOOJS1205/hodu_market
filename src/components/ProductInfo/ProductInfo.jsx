@@ -31,8 +31,10 @@ export default function ProductInfo() {
           {productPrice}
           <strong>원</strong>
         </ProductPrice>
-        <Delivery to="/">택배배송</Delivery>
-        <FreeDelivery to="/">무료배송</FreeDelivery>
+        <div>
+          <Delivery to="/">택배배송</Delivery>
+          <FreeDelivery to="/">무료배송</FreeDelivery>
+        </div>
         <ProductCount>
           <CountButton getProductNum={getProductNum} />
         </ProductCount>
